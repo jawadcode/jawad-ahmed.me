@@ -1,0 +1,25 @@
+* {
+    box-sizing: border-box
+}
+
+html {
+    /* Set `rem` size */
+    font-size: 19px;
+}
+
+body {
+    margin: 0;
+    font-family: "IBM Plex Serif", serif;
+    background-color: #202020;
+    color: #F8F8F8;
+}
+
+a {
+    color: turquoise !important;
+}
+
+a:visited {
+    color: violet !important;
+}
+
+h1, h2, h3, h4, h5, h6 { font-family: "Lato", sans-serif; }

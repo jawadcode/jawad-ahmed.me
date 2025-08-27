@@ -1,0 +1,38 @@
+---
+const { frontmatter } = Astro.props;
+
+import "@fontsource/ibm-plex-serif";
+import "@fontsource/lato";
+import "../styles/iosevka-term-ss07.css";
+
+import "../styles/global.css";
+import "../styles/page.css";
+import "../styles/blog-post.css";
+import "@microflash/remark-callout-directives/theme/github";
+
+import "katex/dist/katex.min.css";
+
+import Navigation from "../components/Navigation.astro";
+---
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="generator" content={Astro.generator} />
+        <!-- <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css"
+            integrity="sha384-zh0CIslj+VczCZtlzBcjt5ppRcsAmDnRem7ESsYwWwg3m/OaJ2l4x7YBZl9Kxxib"
+            crossorigin="anonymous"
+        /> -->
+        <title>Idle Vapourings &mdash; {frontmatter.title}</title>
+    </head>
+    <body data-theme="system">
+        <Navigation />
+        <main>
+            <h1>{frontmatter.title}</h1>
+            <slot />
+        </main>
+    </body>
+</html>

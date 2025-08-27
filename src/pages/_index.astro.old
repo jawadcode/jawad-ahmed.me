@@ -1,0 +1,27 @@
+---
+import "@fontsource/ibm-plex-serif";
+import "@fontsource/lato";
+
+import "../styles/global.css";
+import "../styles/index.css";
+---
+
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Jawad Ahmed</title>
+	</head>
+	<body>
+		<main>
+			<h1>Jawad Ahmed</h1>
+			<nav>
+				<ul>
+					<li><a href="/about">About Me</a></li>
+					<li><a href="/blog">Blog</a></li>
+				</ul>
+			</nav>
+		</main>
+	</body>
+</html>

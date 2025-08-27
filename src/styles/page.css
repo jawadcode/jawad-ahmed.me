@@ -1,0 +1,25 @@
+main {
+    margin: 0 5rem;
+}
+
+@media screen and (width <=1000px) {
+    main {
+        margin: 0 5rem;
+    }
+}
+
+@media screen and (width <=800px) {
+    main {
+        margin: 0 2rem;
+    }
+}
+
+@media screen and (width <=500px) {
+    html {
+        font-size: 18px;
+    }
+
+    main {
+        margin: 0 1rem;
+    }
+}

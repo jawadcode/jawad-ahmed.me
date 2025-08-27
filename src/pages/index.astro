@@ -1,15 +1,84 @@
 ---
+import "../styles/global.css";
+import "../styles/page.css";
+import "../styles/blog.css";
+
+import Navigation from "../components/Navigation.astro";
+import { getCollection } from "astro:content";
+
+const recentPosts = await getCollection("blogs").then((posts) =>
+    posts
+        .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+        .slice(0, 5)
+        .map(({ id, data }) => ({ id, ...data })),
+);
+
+const fmtDate = (date: Date) =>
+    `${fmtDay(date.getDay())} ${date.getDate()}${ordinalSuffix(date.getDate())} ${fmtMonth(date.getMonth())} ${date.getFullYear()}`;
+
+const fmtDay = (day: number) =>
+    [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+    ][day];
+
+const ordinalSuffix = (num: number) => ["st", "nd", "rd"][num] || "th";
+
+const fmtMonth = (month: number) =>
+    [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+    ][month];
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<link rel="icon" type="image/svg+xml" href="./assets/astro.svg" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Jawad Ahmed</title>
-	</head>
-	<body>
-		<h1>My Site</h1>
-	</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="generator" content={Astro.generator} />
+        <title>Blog &mdash; Idle Vapourings</title>
+    </head>
+    <body>
+        <Navigation />
+        <main>
+            <h1>Idle Vapourings</h1>
+            <p><i>... of a mind diseased</i></p>
+            <h2>Posts</h2>
+            <ul class="recent-posts">
+                {
+                    recentPosts.map((post) => (
+                        <li class="recent-post">
+                            <h2 class="recent-post-title">
+                                <a href={`/posts/${post.id}`}>{post.title}</a>
+                            </h2>
+                            <time
+                                class="recent-post-time"
+                                datetime={post.pubDate.toISOString()}
+                            >
+                                {fmtDate(post.pubDate)}
+                            </time>
+                            <p class="recent-post-description">
+                                {post.description}
+                            </p>
+                        </li>
+                    ))
+                }
+            </ul>
+        </main>
+    </body>
 </html>

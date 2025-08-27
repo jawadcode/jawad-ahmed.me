@@ -1,0 +1,31 @@
+.recent-posts {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 0.5rem;
+    gap: 2.5rem;
+}
+
+.recent-post {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 1fr auto;
+    background-color: #303030;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 0 5px #181818;
+}
+
+.recent-post-title {
+    grid-column: 1/2;
+    margin: 0 0 1rem 0;
+}
+
+.recent-post-time {
+    grid-column: 2/3;
+    margin: auto;
+}
+
+.recent-post-description {
+    grid-column: 1/3;
+    margin: 0;
+}

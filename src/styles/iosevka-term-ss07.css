@@ -1,0 +1,26 @@
+@font-face {
+    font-family: 'Iosevka Term SS07 Web';
+    font-display: swap;
+    font-weight: 400;
+    font-stretch: normal;
+    font-style: normal;
+    src: url('/fonts/IosevkaTermSS07-Regular.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Iosevka Term SS07 Web';
+    font-display: swap;
+    font-weight: 400;
+    font-stretch: normal;
+    font-style: italic;
+    src: url('/fonts/IosevkaTermSS07-Italic.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Iosevka Term SS07 Web';
+    font-display: swap;
+    font-weight: 700;
+    font-stretch: normal;
+    font-style: normal;
+    src: url('/fonts/IosevkaTermSS07-Bold.woff2') format('woff2');
+}

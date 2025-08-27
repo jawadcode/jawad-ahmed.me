@@ -1,0 +1,46 @@
+---
+const activePage = Astro.url.pathname.slice(1);
+---
+
+<style>
+    nav {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 2rem;
+        background-color: #303030;
+    }
+
+    h2 {
+    }
+
+    ul {
+        display: flex;
+        gap: 1.5rem;
+        list-style: none;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+    }
+
+    a {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #334488;
+    }
+
+    a:visited {
+        color: #334488;
+    }
+
+    a.active {
+        color: #BBB !important;
+    }
+</style>
+
+<nav>
+    <h2>Jawad Ahmed</h2>
+    <ul>
+        <li><a class={activePage == "" ? "active" : "inactive"} href="/">Blog</a></li>
+        <li><a class={activePage == "about" ? "active" : "inactive"} href="/about">About Me</a></li>
+    </ul>
+</nav>

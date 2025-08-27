@@ -1,4 +1,5 @@
 ---
+layout: ../../layouts/BlogPost.astro
 title: "Hello World"
 description: "Welcome to Idle Vapourings"
 pubDate: 2022-12-20T20:24:08Z

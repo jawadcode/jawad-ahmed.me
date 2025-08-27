@@ -1,0 +1,38 @@
+.astro-code {
+    background-color: #282828 !important;
+    width: fit-content;
+    max-width: 100%;
+    margin: 1rem;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 0.5rem #181818;
+}
+
+code {
+    font-family: "Iosevka Term SS07", monospace;
+    line-height: 1.5;
+}
+
+.callout-info {
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+}
+
+.callout {
+    margin: 1rem
+}
+
+.callout-title {
+    font-family: "Lato", sans-serif;
+}
+
+h1>a,
+h2>a,
+h3>a,
+h4>a,
+h5>a,
+h6>a {
+    margin-left: 1rem;
+    text-decoration: none;
+    font-size: 1rem;
+}
