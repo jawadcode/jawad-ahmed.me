@@ -1,5 +1,5 @@
 * {
-    box-sizing: border-box
+    box-sizing: border-box;
 }
 
 html {
@@ -7,19 +7,55 @@ html {
     font-size: 19px;
 }
 
+@media (prefers-color-scheme: dark) {
+    :root {
+        /* --primary-bg: #212121;
+        --secondary-bg: #141414;
+        --tertiary-bg: #060606; */
+
+        --tertiary-bg: #282828;
+        --secondary-bg: #202020;
+        --primary-bg: #121212;
+
+        --fg-colour: #dcdcdc;
+        --fg-colour-bold: #f8f8f8;
+        --box-shadow: #080808;
+        --accent: #006688;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --primary-bg: #efefef;
+        --secondary-bg: #f3f3f3;
+        --tertiary-bg: #ffffff;
+        --fg-colour: #202020;
+        --fg-colour-bold: #101010;
+        --box-shadow: #dddddd;
+        --accent: #006688;
+    }
+}
+
 body {
     margin: 0;
     font-family: "IBM Plex Serif", serif;
-    background-color: #202020;
-    color: #F8F8F8;
+    background-color: var(--primary-bg);
+    color: var(--fg-colour);
 }
 
 a {
-    color: turquoise !important;
+    color: var(--accent) !important;
 }
 
 a:visited {
     color: violet !important;
 }
 
-h1, h2, h3, h4, h5, h6 { font-family: "Lato", sans-serif; }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Lato", sans-serif;
+}

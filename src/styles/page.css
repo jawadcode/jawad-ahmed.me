@@ -1,25 +1,27 @@
-main {
-    margin: 0 5rem;
-}
-
-@media screen and (width <=1000px) {
+@media screen and (width > 1024px) {
     main {
         margin: 0 5rem;
     }
 }
 
-@media screen and (width <=800px) {
+@media screen and (max-width: 1024px) {
     main {
-        margin: 0 2rem;
+        margin: 0 3rem;
     }
 }
 
-@media screen and (width <=500px) {
+@media screen and (max-width: 768px) {
     html {
         font-size: 18px;
     }
 
     main {
         margin: 0 1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    main {
+        margin: 0 0.5rem;
     }
 }

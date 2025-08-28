@@ -1,7 +1,6 @@
 ---
 import "../styles/global.css";
 import "../styles/page.css";
-import "../styles/blog.css";
 
 import Navigation from "../components/Navigation.astro";
 import { getCollection } from "astro:content";
@@ -10,7 +9,7 @@ const recentPosts = await getCollection("blogs").then((posts) =>
     posts
         .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
         .slice(0, 5)
-        .map(({ id, data }) => ({ id, ...data })),
+        .map(({ id, data }) => ({ id, ...data }))
 );
 
 const fmtDate = (date: Date) =>
@@ -46,6 +45,76 @@ const fmtMonth = (month: number) =>
     ][month];
 ---
 
+<style>
+    ul {
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+        padding: 0.5rem;
+        gap: 2rem;
+    }
+
+    li {
+        position: relative;
+        background-color: var(--secondary-bg);
+        box-shadow: 0 0 5px var(--box-shadow);
+        border-radius: 0.5rem;
+    }
+
+    li > h2 > a::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    @media screen and (width > 768px) {
+        li {
+            display: grid;
+            grid-template-rows: auto 1fr;
+            grid-template-columns: 1fr auto;
+        }
+
+        li > h2 {
+            grid-column: 1/2;
+            margin: 0 0 1rem 0;
+        }
+
+        time {
+            grid-column: 2/3;
+            margin: unset;
+        }
+
+        li > p {
+            grid-column: 1/3;
+            margin: 0;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        li {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* time::before {content: "Written on "} */
+    }
+
+    @media screen and (width > 480px) {
+        li {
+            padding: 1.5rem 2rem;
+        }
+    }
+
+    @media screen and (max-width: 480px) {
+        li {
+            padding: 0 1rem;
+        }
+    }
+</style>
+
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
@@ -59,22 +128,17 @@ const fmtMonth = (month: number) =>
             <h1>Idle Vapourings</h1>
             <p><i>... of a mind diseased</i></p>
             <h2>Posts</h2>
-            <ul class="recent-posts">
+            <ul>
                 {
                     recentPosts.map((post) => (
-                        <li class="recent-post">
-                            <h2 class="recent-post-title">
+                        <li>
+                            <h2>
                                 <a href={`/posts/${post.id}`}>{post.title}</a>
                             </h2>
-                            <time
-                                class="recent-post-time"
-                                datetime={post.pubDate.toISOString()}
-                            >
+                            <time datetime={post.pubDate.toISOString()}>
                                 {fmtDate(post.pubDate)}
                             </time>
-                            <p class="recent-post-description">
-                                {post.description}
-                            </p>
+                            <p>{post.description}</p>
                         </li>
                     ))
                 }

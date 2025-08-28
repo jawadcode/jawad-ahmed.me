@@ -21,7 +21,11 @@ Callout body $e^{x}$.
 
 ```rs
 fn main() {
-    println!("Hello {}", "World"); println!("Hello {}", "World"); println!("Hello {}", "World"); println!("Hello {}", "World"); println!("Hello {}", "World"); println!("Hello {}", "World"); println!("Hello {}", "World"); println!("Hello {}", "World"); println!("Hello {}", "World"); println!("Hello {}", "World");
+    println!("Hello {}", "World"); println!("Hello {}", "World"); println!(
+        "Hello {}", "World"); println!("Hello {}", "World"); println!("Hello {}",
+        "World"); println!("Hello {}", "World"); println!("Hello {}", "World");
+        println!("Hello {}", "World"); println!("Hello {}", "World"); println!(
+        "Hello {}", "World");
 }
 ```
 
@@ -30,3 +34,5 @@ fn main() {
 $$
 \int_2^3 2x^2 + 3x + 5 dx
 $$
+
+## Table

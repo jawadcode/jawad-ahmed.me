@@ -7,13 +7,87 @@ import "../styles/iosevka-term-ss07.css";
 
 import "../styles/global.css";
 import "../styles/page.css";
-import "../styles/blog-post.css";
 import "@microflash/remark-callout-directives/theme/github";
 
 import "katex/dist/katex.min.css";
 
 import Navigation from "../components/Navigation.astro";
 ---
+
+<style is:global>
+    pre {
+        background-color: var(--secondary-bg) !important;
+        width: fit-content;
+        max-width: 100%;
+        border-radius: 0.5rem;
+        box-shadow: 0 0 0.5rem var(--box-shadow);
+    }
+
+    code {
+        font-family: "Iosevka Term SS07", monospace;
+        line-height: 1.5;
+    }
+
+    .callout-info {
+        grid-template-columns: auto 1fr;
+        grid-template-rows: auto auto;
+    }
+
+    .callout {
+        margin: 1rem;
+    }
+
+    .callout-title {
+        font-family: "Lato", sans-serif;
+    }
+
+    h1 > a,
+    h2 > a,
+    h3 > a,
+    h4 > a,
+    h5 > a,
+    h6 > a {
+        margin-left: 1rem;
+        text-decoration: none;
+        font-size: 1rem;
+    }
+
+    @media screen and (width > 768px) {
+        pre {
+            margin: 1rem;
+            padding: 1.5rem;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        pre {
+            margin: 0rem;
+            padding: 0.75rem;
+        }
+    }
+
+    @media (prefers-color-scheme: dark) {
+        .astro-code,
+        .astro-code span {
+            color: var(--shiki-dark) !important;
+            background-color: var(--shiki-dark-bg) !important;
+            font-style: var(--shiki-dark-font-style) !important;
+            font-weight: var(--shiki-dark-font-weight) !important;
+            text-decoration: var(--shiki-dark-text-decoration) !important;
+        }
+    }
+
+    @media (prefers-color-scheme: light) {
+        .astro-code,
+        .astro-code span {
+            color: var(--shiki-light) !important;
+            background-color: var(--shiki-light-bg) !important;
+            font-style: var(--shiki-light-font-style) !important;
+            font-weight: var(--shiki-light-font-weight) !important;
+            text-decoration: var(--shiki-light-text-decoration) !important;
+        }
+    }
+</style>
 
 <html lang="en">
     <head>
@@ -28,7 +102,7 @@ import Navigation from "../components/Navigation.astro";
         /> -->
         <title>Idle Vapourings &mdash; {frontmatter.title}</title>
     </head>
-    <body data-theme="system">
+    <body>
         <Navigation />
         <main>
             <h1>{frontmatter.title}</h1>

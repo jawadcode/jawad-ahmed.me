@@ -7,10 +7,7 @@ const activePage = Astro.url.pathname.slice(1);
         display: flex;
         justify-content: space-between;
         padding: 0 2rem;
-        background-color: #303030;
-    }
-
-    h2 {
+        background-color: var(--secondary-bg);
     }
 
     ul {
@@ -23,24 +20,43 @@ const activePage = Astro.url.pathname.slice(1);
     }
 
     a {
-        font-size: 1.2rem;
         font-weight: bold;
-        color: #334488;
+        color: var(--accent);
     }
 
     a:visited {
-        color: #334488;
+        color: var(--accent);
     }
 
     a.active {
+        text-decoration: none;
         color: #BBB !important;
+    }
+
+    @media screen and (max-width: 480px) {
+        nav {
+            padding: 0 1rem;
+        }
+
+        ul {
+            gap: 0.75rem;
+        }
     }
 </style>
 
 <nav>
-    <h2>Jawad Ahmed</h2>
+    <h3>Jawad Ahmed</h3>
     <ul>
-        <li><a class={activePage == "" ? "active" : "inactive"} href="/">Blog</a></li>
-        <li><a class={activePage == "about" ? "active" : "inactive"} href="/about">About Me</a></li>
+        {activePage === "" ?
+            <li><a class="active" href="/">Home</a></li>
+            <li><a href="/about">About Me</a></li>
+        : activePage === "about" ?
+            <li><a href="/">Home</a></li>
+            <li><a class="active" href="/about">About Me</a></li>
+        :
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About Me</a></li>
+        }
+        </li>
     </ul>
 </nav>
