@@ -14,7 +14,7 @@
     "@fontsource/ibm-plex-serif": "^5.2.6",
     "@fontsource/lato": "^5.2.6",
     "@microflash/remark-callout-directives": "^4.4.0",
-    "astro": "^5.13.3",
+    "astro": "^5.13.5",
     "katex": "^0.16.22",
     "rehype-autolink-headings": "^7.1.0",
     "rehype-katex": "^7.0.1",
